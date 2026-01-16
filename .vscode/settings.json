@@ -1,0 +1,12 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#56064F",
+    "titleBar.activeBackground": "#79096F",
+    "titleBar.activeForeground": "#FFFAFE"
+  },
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "editor.formatOnSave": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  }
+}

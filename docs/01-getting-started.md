@@ -23,15 +23,15 @@ cargo --version    # 套件管理工具（類似 npm）
 
 ## Cargo：Rust 的 npm
 
-| npm 指令 | Cargo 指令 | 說明 |
-|----------|-----------|------|
-| `npm init` | `cargo new` | 建立新專案 |
-| `npm install` | `cargo build` | 編譯專案（自動下載依賴） |
-| `npm run start` | `cargo run` | 編譯並執行 |
-| `npm test` | `cargo test` | 執行測試 |
-| `npm publish` | `cargo publish` | 發布套件 |
-| `package.json` | `Cargo.toml` | 專案設定檔 |
-| `node_modules/` | `target/` | 依賴與編譯產物 |
+| npm 指令        | Cargo 指令                  | 說明                     |
+| --------------- | --------------------------- | ------------------------ |
+| `npm init`      | `cargo init` 或 `cargo new` | 建立新專案               |
+| `npm install`   | `cargo build`               | 編譯專案（自動下載依賴） |
+| `npm run start` | `cargo run`                 | 編譯並執行               |
+| `npm test`      | `cargo test`                | 執行測試                 |
+| `npm publish`   | `cargo publish`             | 發布套件                 |
+| `package.json`  | `Cargo.toml`                | 專案設定檔               |
+| `node_modules/` | `target/`                   | 依賴與編譯產物           |
 
 ## 建立第一個專案
 
@@ -43,7 +43,7 @@ cd hello_rust
 
 專案結構：
 
-```
+```txt
 hello_rust/
 ├── Cargo.toml    # 類似 package.json
 └── src/
@@ -107,10 +107,10 @@ cargo build --release    # 產出在 target/release/
 
 ### 開發 vs 發布
 
-| 模式 | 指令 | 編譯速度 | 執行速度 | 用途 |
-|------|------|---------|---------|------|
-| Debug | `cargo build` | 快 | 較慢 | 開發階段 |
-| Release | `cargo build --release` | 慢 | 極快 | 正式發布 |
+| 模式    | 指令                    | 編譯速度 | 執行速度 | 用途     |
+| ------- | ----------------------- | -------- | -------- | -------- |
+| Debug   | `cargo build`           | 快       | 較慢     | 開發階段 |
+| Release | `cargo build --release` | 慢       | 極快     | 正式發布 |
 
 ## VS Code 設定
 
@@ -159,15 +159,18 @@ rustup update
 ## 練習題
 
 ### 練習 1：建立並執行專案
+
 1. 使用 `cargo new my_first_rust` 建立專案
 2. 修改 `main.rs`，印出你的名字
 3. 使用 `cargo run` 執行
 
 ### 練習 2：探索 Cargo
+
 1. 執行 `cargo check` 和 `cargo build`，觀察差異
 2. 執行 `cargo build --release`，比較 `target/debug` 和 `target/release` 的檔案大小
 
 ### 練習 3：故意出錯
+
 試著把程式碼改成以下內容，觀察編譯器給你的錯誤訊息：
 
 ```rust
