@@ -46,18 +46,18 @@ let is_empty = v.is_empty();
 
 ### JS Array vs Rust Vec 對照
 
-| JavaScript | Rust | 說明 |
-|------------|------|------|
-| `arr.push(x)` | `v.push(x)` | 尾部新增 |
-| `arr.pop()` | `v.pop()` | 尾部移除 |
-| `arr.shift()` | `v.remove(0)` | 頭部移除 |
-| `arr.unshift(x)` | `v.insert(0, x)` | 頭部新增 |
-| `arr[i]` | `v[i]` 或 `v.get(i)` | 存取 |
-| `arr.length` | `v.len()` | 長度 |
-| `arr.slice(a, b)` | `&v[a..b]` | 切片 |
-| `arr.concat(arr2)` | `v.extend(v2)` | 合併 |
-| `arr.includes(x)` | `v.contains(&x)` | 包含 |
-| `arr.indexOf(x)` | `v.iter().position(\|&i\| i == x)` | 索引 |
+| JavaScript         | Rust                               | 說明     |
+| ------------------ | ---------------------------------- | -------- |
+| `arr.push(x)`      | `v.push(x)`                        | 尾部新增 |
+| `arr.pop()`        | `v.pop()`                          | 尾部移除 |
+| `arr.shift()`      | `v.remove(0)`                      | 頭部移除 |
+| `arr.unshift(x)`   | `v.insert(0, x)`                   | 頭部新增 |
+| `arr[i]`           | `v[i]` 或 `v.get(i)`               | 存取     |
+| `arr.length`       | `v.len()`                          | 長度     |
+| `arr.slice(a, b)`  | `&v[a..b]`                         | 切片     |
+| `arr.concat(arr2)` | `v.extend(v2)`                     | 合併     |
+| `arr.includes(x)`  | `v.contains(&x)`                   | 包含     |
+| `arr.indexOf(x)`   | `v.iter().position(\|&i\| i == x)` | 索引     |
 
 ### 遍歷 Vec
 
@@ -237,22 +237,22 @@ let result: i32 = numbers
 
 ### 迭代器方法大全
 
-| JavaScript | Rust | 說明 |
-|------------|------|------|
-| `map(fn)` | `.map(fn)` | 轉換 |
-| `filter(fn)` | `.filter(fn)` | 過濾 |
-| `reduce(fn, init)` | `.fold(init, fn)` | 累積 |
-| `find(fn)` | `.find(fn)` | 找第一個 |
-| `some(fn)` | `.any(fn)` | 任一滿足 |
-| `every(fn)` | `.all(fn)` | 全部滿足 |
-| `forEach(fn)` | `.for_each(fn)` | 執行副作用 |
-| `slice(0, n)` | `.take(n)` | 取前 n 個 |
-| `slice(n)` | `.skip(n)` | 跳過前 n 個 |
-| `flat()` | `.flatten()` | 攤平 |
-| `flatMap(fn)` | `.flat_map(fn)` | map + 攤平 |
-| `indexOf(x)` | `.position(fn)` | 找索引 |
-| `reverse()` | `.rev()` | 反轉 |
-| `sort()` | `.sorted()` (itertools) | 排序 |
+| JavaScript         | Rust                    | 說明        |
+| ------------------ | ----------------------- | ----------- |
+| `map(fn)`          | `.map(fn)`              | 轉換        |
+| `filter(fn)`       | `.filter(fn)`           | 過濾        |
+| `reduce(fn, init)` | `.fold(init, fn)`       | 累積        |
+| `find(fn)`         | `.find(fn)`             | 找第一個    |
+| `some(fn)`         | `.any(fn)`              | 任一滿足    |
+| `every(fn)`        | `.all(fn)`              | 全部滿足    |
+| `forEach(fn)`      | `.for_each(fn)`         | 執行副作用  |
+| `slice(0, n)`      | `.take(n)`              | 取前 n 個   |
+| `slice(n)`         | `.skip(n)`              | 跳過前 n 個 |
+| `flat()`           | `.flatten()`            | 攤平        |
+| `flatMap(fn)`      | `.flat_map(fn)`         | map + 攤平  |
+| `indexOf(x)`       | `.position(fn)`         | 找索引      |
+| `reverse()`        | `.rev()`                | 反轉        |
+| `sort()`           | `.sorted()` (itertools) | 排序        |
 
 ## 閉包（Closure）
 
@@ -405,6 +405,7 @@ let oldest = people.iter().max_by_key(|(_, age)| age);
 ## 練習題
 
 ### 練習 1：Vec 操作
+
 ```rust
 // 實作函式：移除 Vec 中所有偶數
 fn remove_evens(v: &mut Vec<i32>) {
@@ -413,6 +414,7 @@ fn remove_evens(v: &mut Vec<i32>) {
 ```
 
 ### 練習 2：迭代器鏈
+
 ```rust
 // 計算字串中所有數字的總和
 // "a1b2c3" -> 6
@@ -422,6 +424,7 @@ fn sum_digits(s: &str) -> u32 {
 ```
 
 ### 練習 3：HashMap 練習
+
 ```rust
 // 統計字串中每個字元出現的次數
 fn char_count(s: &str) -> HashMap<char, usize> {
@@ -430,7 +433,9 @@ fn char_count(s: &str) -> HashMap<char, usize> {
 ```
 
 ### 練習 4：綜合應用
+
 給定一組學生成績，找出：
+
 1. 平均分數
 2. 最高分的學生
 3. 及格（>= 60）的學生名單

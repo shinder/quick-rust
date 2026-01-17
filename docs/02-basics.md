@@ -20,11 +20,11 @@ const Z: i32 = 15; // 編譯時常數
 
 ### 重點差異
 
-| 概念 | JavaScript | Rust |
-|------|------------|------|
-| 預設行為 | `let` 可變 | `let` 不可變 |
-| 可變變數 | `let` | `let mut` |
-| 常數 | `const`（執行時） | `const`（編譯時，需型別） |
+| 概念     | JavaScript        | Rust                      |
+| -------- | ----------------- | ------------------------- |
+| 預設行為 | `let` 可變        | `let` 不可變              |
+| 可變變數 | `let`             | `let mut`                 |
+| 常數     | `const`（執行時） | `const`（編譯時，需型別） |
 
 ### 變數遮蔽（Shadowing）
 
@@ -90,6 +90,7 @@ s3.push_str("Hello");
 ```
 
 **簡單記法**：
+
 - `&str`：類似 JS 的字串字面值 `"hello"`
 - `String`：類似 JS 的 `new String("hello")` 但更常用
 
@@ -243,23 +244,24 @@ let result = match number {
 
 ## JS vs Rust 語法對照表
 
-| 功能 | JavaScript | Rust |
-|------|------------|------|
-| 變數（可變） | `let x = 1` | `let mut x = 1` |
-| 變數（不可變） | `const x = 1` | `let x = 1` |
-| 函式 | `function f(a) {}` | `fn f(a: i32) {}` |
-| 箭頭函式 | `(a) => a + 1` | `\|a\| a + 1`（閉包） |
-| 字串模板 | `` `Hello ${name}` `` | `format!("Hello {}", name)` |
-| 印出 | `console.log(x)` | `println!("{}", x)` |
-| 陣列 | `[1, 2, 3]` | `[1, 2, 3]`（固定）或 `vec![1,2,3]` |
-| 物件 | `{ a: 1, b: 2 }` | `struct` 或 `HashMap` |
-| 空值 | `null / undefined` | `Option<T>` |
-| 三元運算 | `a ? b : c` | `if a { b } else { c }` |
-| 型別檢查 | `typeof x` | 編譯時確定，無需檢查 |
+| 功能           | JavaScript            | Rust                                |
+| -------------- | --------------------- | ----------------------------------- |
+| 變數（可變）   | `let x = 1`           | `let mut x = 1`                     |
+| 變數（不可變） | `const x = 1`         | `let x = 1`                         |
+| 函式           | `function f(a) {}`    | `fn f(a: i32) {}`                   |
+| 箭頭函式       | `(a) => a + 1`        | `\|a\| a + 1`（閉包）               |
+| 字串模板       | `` `Hello ${name}` `` | `format!("Hello {}", name)`         |
+| 印出           | `console.log(x)`      | `println!("{}", x)`                 |
+| 陣列           | `[1, 2, 3]`           | `[1, 2, 3]`（固定）或 `vec![1,2,3]` |
+| 物件           | `{ a: 1, b: 2 }`      | `struct` 或 `HashMap`               |
+| 空值           | `null / undefined`    | `Option<T>`                         |
+| 三元運算       | `a ? b : c`           | `if a { b } else { c }`             |
+| 型別檢查       | `typeof x`            | 編譯時確定，無需檢查                |
 
 ## 練習題
 
 ### 練習 1：變數與型別
+
 ```rust
 fn main() {
     // 1. 宣告一個可變的整數變數 count，初始值為 0
@@ -271,6 +273,7 @@ fn main() {
 ```
 
 ### 練習 2：函式
+
 ```rust
 // 完成這個函式：計算兩數的平均值
 fn average(a: f64, b: f64) -> f64 {
@@ -284,6 +287,7 @@ fn main() {
 ```
 
 ### 練習 3：match 練習
+
 ```rust
 // 完成這個函式：根據分數回傳等級
 // 90-100: "A", 80-89: "B", 70-79: "C", 60-69: "D", 其他: "F"
@@ -293,7 +297,9 @@ fn grade(score: i32) -> &'static str {
 ```
 
 ### 練習 4：FizzBuzz
+
 用 Rust 實作經典的 FizzBuzz：
+
 - 印出 1 到 30
 - 3 的倍數印 "Fizz"
 - 5 的倍數印 "Buzz"

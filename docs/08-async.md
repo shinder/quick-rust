@@ -4,13 +4,13 @@
 
 ## JS vs Rust 非同步對比
 
-| 概念 | JavaScript | Rust |
-|------|------------|------|
-| 非同步函式 | `async function` | `async fn` |
-| 等待結果 | `await` | `.await` |
-| 非同步值 | `Promise` | `Future` |
-| 執行時 | V8 Event Loop（內建） | tokio/async-std（需安裝） |
-| 並行執行 | `Promise.all()` | `tokio::join!` |
+| 概念       | JavaScript            | Rust                      |
+| ---------- | --------------------- | ------------------------- |
+| 非同步函式 | `async function`      | `async fn`                |
+| 等待結果   | `await`               | `.await`                  |
+| 非同步值   | `Promise`             | `Future`                  |
+| 執行時     | V8 Event Loop（內建） | tokio/async-std（需安裝） |
+| 並行執行   | `Promise.all()`       | `tokio::join!`            |
 
 ## async/await 基本語法
 
@@ -425,12 +425,15 @@ async fn fetch_title(url: &str) -> Result<String> {
 ## 練習題
 
 ### 練習 1：基本非同步
+
 寫一個非同步函式，延遲 1 秒後回傳 "Hello"。
 
 ### 練習 2：並行請求
+
 同時請求 3 個不同的 API 端點，等待全部完成後回傳結果。
 
 ### 練習 3：超時處理
+
 實作一個有超時機制的 HTTP 請求（5 秒超時）。
 
 ```rust
@@ -443,6 +446,7 @@ async fn fetch_with_timeout(url: &str) -> Result<String> {
 ```
 
 ### 練習 4：並行限制
+
 實作一個爬蟲，同時最多只有 3 個請求在執行（避免過載目標伺服器）。
 
 ```rust
@@ -451,7 +455,7 @@ async fn fetch_with_timeout(url: &str) -> Result<String> {
 
 ---
 
-## 恭喜！
+## 恭喜
 
 你已經完成了這份 Rust 快速入門指南！
 

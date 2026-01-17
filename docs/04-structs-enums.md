@@ -397,24 +397,27 @@ match msg {
 
 ## 從 JS 物件思維轉換
 
-| JavaScript 概念 | Rust 對應 |
-|----------------|----------|
-| `class` | `struct` + `impl` |
-| `constructor` | 關聯函式（如 `new`） |
-| `this` | `self` |
-| 物件字面值 | 結構體實例 |
-| `null/undefined` | `Option<T>` |
-| 聯合型別 | `enum` |
-| `instanceof` | `match` 模式匹配 |
+| JavaScript 概念  | Rust 對應            |
+| ---------------- | -------------------- |
+| `class`          | `struct` + `impl`    |
+| `constructor`    | 關聯函式（如 `new`） |
+| `this`           | `self`               |
+| 物件字面值       | 結構體實例           |
+| `null/undefined` | `Option<T>`          |
+| 聯合型別         | `enum`               |
+| `instanceof`     | `match` 模式匹配     |
 
 ## 練習題
 
 ### 練習 1：建立結構體
+
 建立一個 `Book` 結構體，包含 title、author、pages，並實作：
+
 - `new` 關聯函式
 - `summary` 方法回傳書籍描述
 
 ### 練習 2：Option 練習
+
 ```rust
 // 完成這個函式：找出陣列中的最大值
 fn find_max(numbers: &[i32]) -> Option<i32> {
@@ -423,7 +426,9 @@ fn find_max(numbers: &[i32]) -> Option<i32> {
 ```
 
 ### 練習 3：列舉練習
+
 定義一個 `Shape` 列舉，包含：
+
 - `Circle { radius: f64 }`
 - `Rectangle { width: f64, height: f64 }`
 - `Triangle { base: f64, height: f64 }`

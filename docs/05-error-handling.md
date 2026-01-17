@@ -5,6 +5,7 @@
 JavaScript 使用 `try-catch` 和 `throw`，錯誤可能在任何地方發生。
 
 Rust 強制你處理錯誤：
+
 - **可恢復錯誤**：`Result<T, E>`
 - **不可恢復錯誤**：`panic!`（程式崩潰）
 
@@ -144,7 +145,7 @@ let opt: Option<i32> = result.ok();
 
 ## panic! 與 unwrap
 
-### 何時使用 panic!
+### 何時使用 panic
 
 ```rust
 // 1. 程式無法繼續執行的情況
@@ -172,6 +173,7 @@ let value = some_result.expect("操作應該成功");
 ```
 
 **使用時機**：
+
 - **原型開發**：快速開發時可以用
 - **測試程式碼**：測試中合理
 - **確定不會失敗**：邏輯上確定不會是 None/Err
@@ -253,14 +255,14 @@ enum AppError {
 
 ## 對比 JS 的 try-catch
 
-| 情境 | JavaScript | Rust |
-|------|------------|------|
-| 可能失敗的操作 | 可能 throw，也可能不會 | 回傳 `Result<T, E>` |
-| 處理錯誤 | `try-catch` | `match`、`?`、`unwrap_or` |
-| 傳遞錯誤 | `throw` | `?` 或 `return Err(e)` |
-| 忽略錯誤 | 不 catch | `let _ = result;` |
-| 錯誤類型 | 任意（通常 Error） | 明確的型別 E |
-| 編譯時檢查 | 無 | 強制處理 Result |
+| 情境           | JavaScript             | Rust                      |
+| -------------- | ---------------------- | ------------------------- |
+| 可能失敗的操作 | 可能 throw，也可能不會 | 回傳 `Result<T, E>`       |
+| 處理錯誤       | `try-catch`            | `match`、`?`、`unwrap_or` |
+| 傳遞錯誤       | `throw`                | `?` 或 `return Err(e)`    |
+| 忽略錯誤       | 不 catch               | `let _ = result;`         |
+| 錯誤類型       | 任意（通常 Error）     | 明確的型別 E              |
+| 編譯時檢查     | 無                     | 強制處理 Result           |
 
 ### JavaScript 風格 vs Rust 風格
 
@@ -337,6 +339,7 @@ fn main() -> Result<()> {
 ## 練習題
 
 ### 練習 1：基本錯誤處理
+
 ```rust
 // 完成這個函式：安全地將字串轉換為數字
 fn parse_number(s: &str) -> Result<i32, /* 填入錯誤型別 */> {
@@ -345,6 +348,7 @@ fn parse_number(s: &str) -> Result<i32, /* 填入錯誤型別 */> {
 ```
 
 ### 練習 2：使用 ? 運算子
+
 ```rust
 // 重構這個函式，使用 ? 運算子
 fn read_username() -> Result<String, std::io::Error> {
@@ -363,7 +367,9 @@ fn read_username() -> Result<String, std::io::Error> {
 ```
 
 ### 練習 3：自訂錯誤
+
 定義一個 `ValidationError` 列舉，包含：
+
 - `Empty`：欄位為空
 - `TooShort(usize)`：長度不足
 - `InvalidFormat(String)`：格式錯誤

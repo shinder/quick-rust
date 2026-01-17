@@ -2,13 +2,13 @@
 
 ## 模組系統概念
 
-| JavaScript 概念 | Rust 對應 |
-|----------------|----------|
-| `package.json` | `Cargo.toml` |
+| JavaScript 概念 | Rust 對應            |
+| --------------- | -------------------- |
+| `package.json`  | `Cargo.toml`         |
 | `node_modules/` | `~/.cargo/registry/` |
-| npm | Cargo + crates.io |
-| `import/export` | `mod/use/pub` |
-| ES Modules | Rust 模組系統 |
+| npm             | Cargo + crates.io    |
+| `import/export` | `mod/use/pub`        |
+| ES Modules      | Rust 模組系統        |
 
 ## 模組（mod）
 
@@ -39,7 +39,7 @@ fn main() {
 
 ### 檔案即模組
 
-```
+```txt
 src/
 ├── main.rs
 └── math.rs
@@ -61,7 +61,7 @@ fn main() {
 
 ### 目錄模組
 
-```
+```txt
 src/
 ├── main.rs
 └── math/
@@ -245,37 +245,37 @@ cargo update serde    # 只更新 serde
 
 ### 必備工具
 
-| 用途 | Crate | 說明 |
-|------|-------|------|
-| 序列化 | `serde`, `serde_json` | JSON/YAML 等格式處理 |
-| 非同步 | `tokio` | 非同步執行時 |
-| HTTP 客戶端 | `reqwest` | 類似 axios |
-| HTTP 伺服器 | `axum`, `actix-web` | Web 框架 |
-| CLI | `clap` | 命令列參數解析 |
-| 日誌 | `tracing`, `log` | 記錄日誌 |
-| 錯誤處理 | `anyhow`, `thiserror` | 簡化錯誤處理 |
-| 日期時間 | `chrono` | 日期時間處理 |
-| 正則表達式 | `regex` | 正則表達式 |
-| 隨機數 | `rand` | 隨機數生成 |
+| 用途        | Crate                 | 說明                 |
+| ----------- | --------------------- | -------------------- |
+| 序列化      | `serde`, `serde_json` | JSON/YAML 等格式處理 |
+| 非同步      | `tokio`               | 非同步執行時         |
+| HTTP 客戶端 | `reqwest`             | 類似 axios           |
+| HTTP 伺服器 | `axum`, `actix-web`   | Web 框架             |
+| CLI         | `clap`                | 命令列參數解析       |
+| 日誌        | `tracing`, `log`      | 記錄日誌             |
+| 錯誤處理    | `anyhow`, `thiserror` | 簡化錯誤處理         |
+| 日期時間    | `chrono`              | 日期時間處理         |
+| 正則表達式  | `regex`               | 正則表達式           |
+| 隨機數      | `rand`                | 隨機數生成           |
 
 ### 類比 JavaScript 生態
 
-| JavaScript | Rust |
-|------------|------|
-| axios | reqwest |
-| express | axum, actix-web |
-| commander | clap |
-| lodash | itertools |
-| moment/dayjs | chrono |
-| uuid | uuid |
-| dotenv | dotenvy |
-| jest | 內建測試 + criterion |
+| JavaScript   | Rust                 |
+| ------------ | -------------------- |
+| axios        | reqwest              |
+| express      | axum, actix-web      |
+| commander    | clap                 |
+| lodash       | itertools            |
+| moment/dayjs | chrono               |
+| uuid         | uuid                 |
+| dotenv       | dotenvy              |
+| jest         | 內建測試 + criterion |
 
 ## 專案結構最佳實踐
 
 ### 小型專案
 
-```
+```txt
 my_project/
 ├── Cargo.toml
 └── src/
@@ -284,7 +284,7 @@ my_project/
 
 ### 中型專案
 
-```
+```txt
 my_project/
 ├── Cargo.toml
 └── src/
@@ -300,7 +300,7 @@ my_project/
 
 ### 大型專案（Workspace）
 
-```
+```txt
 my_workspace/
 ├── Cargo.toml         # workspace 設定
 ├── crates/
@@ -327,7 +327,7 @@ members = [
 
 ### lib.rs vs main.rs
 
-```
+```txt
 src/
 ├── lib.rs    # 程式庫，可被其他專案使用
 └── main.rs   # 執行檔，使用 lib.rs
@@ -397,9 +397,10 @@ cargo doc --open         # 產生並開啟文件
 ## 練習題
 
 ### 練習 1：建立模組結構
+
 建立以下結構並讓它能編譯：
 
-```
+```txt
 src/
 ├── main.rs
 └── utils/
@@ -409,15 +410,20 @@ src/
 ```
 
 ### 練習 2：使用外部 crate
+
 1. 新增 `rand` 依賴
 2. 寫一個函式產生隨機密碼
 
 ### 練習 3：重新匯出
+
 修改練習 1，讓使用者可以這樣使用：
+
 ```rust
 use my_crate::{reverse, factorial};
 ```
+
 而非：
+
 ```rust
 use my_crate::utils::string::reverse;
 use my_crate::utils::math::factorial;
